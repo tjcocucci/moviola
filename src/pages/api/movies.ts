@@ -5,15 +5,15 @@ const API_KEY = 'ba282fc7777a85594b4d09bffedbb258';
 const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-    
   if (req.method === 'GET') {
     try {
       const response = await fetch(
         `${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=release_date.desc`
       );
       const data = await response.json();
+      const results = data.results;
 
-      res.status(200).json({ data });
+      res.status(200).json(results);
     } catch (error) {
       console.error(error);
       res
