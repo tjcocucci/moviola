@@ -11,7 +11,7 @@ const buildQueryString = (text: string) => {
   return 'api/movies';
 };
 
-export default function useSearch(handleSearch) {
+export default function useSearch(handleSearch: Function) {
   const [inputText, setInputText] = useState<string>('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

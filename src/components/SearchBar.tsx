@@ -1,7 +1,10 @@
 import useSearch from '@/hooks/useSearch';
 
-export default function SearchBar({ handleSearch }) {
-
+export default function SearchBar({
+  handleSearch,
+}: {
+  handleSearch: Function;
+}) {
   const { inputText, handleInputChange } = useSearch(handleSearch);
 
   return (
