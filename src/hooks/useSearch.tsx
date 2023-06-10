@@ -11,10 +11,8 @@ const buildQueryString = (text: string) => {
   return 'api/movies';
 };
 
-export default function useSearch() {
+export default function useSearch(handleSearch) {
   const [inputText, setInputText] = useState<string>('');
-  const [movieList, setMovieList] = useState<MovieProps[]>([]);
-
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(event.target.value);
@@ -29,15 +27,14 @@ export default function useSearch() {
       },
     });
 
-    if (response.ok) {
+    if (response.ok && response.status === 200) {
       const data = await response.json();
-      setMovieList(
-        data.map((movie: any) => ({
-          id: movie.id,
-          title: movie.title,
-          poster_path: movie.poster_path,
-        }))
-      );
+      const moviesArray = data.map((movie: any) => ({
+        id: movie.id,
+        title: movie.title,
+        poster_path: movie.poster_path,
+      }));
+      handleSearch(moviesArray);
     }
   };
 
@@ -49,7 +46,5 @@ export default function useSearch() {
     }
   }, [inputText, debouncedSearch]);
 
-  console.log(movieList);
-
-  return { inputText, movieList, handleInputChange };
+  return { inputText, handleInputChange };
 }

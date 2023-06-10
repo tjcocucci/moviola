@@ -1,7 +1,8 @@
 import useSearch from '@/hooks/useSearch';
 
-export default function SearchBar() {
-  const { inputText, handleInputChange } = useSearch();
+export default function SearchBar({ handleSearch }) {
+
+  const { inputText, handleInputChange } = useSearch(handleSearch);
 
   return (
     <div className="ml-auto h-10">
