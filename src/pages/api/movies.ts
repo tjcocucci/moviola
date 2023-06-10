@@ -7,8 +7,9 @@ const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     try {
+      const params = new URLSearchParams(req.query);
       const response = await fetch(
-        `${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=release_date.desc`
+        `${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&${params}`
       );
       const data = await response.json();
       const results = data.results;
