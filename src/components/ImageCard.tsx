@@ -8,14 +8,14 @@ const ImageCard = ({
   title: string;
 }) => {
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg">
+    <div className="flex flex-col rounded-lg overflow-hidden w-64 cursor-pointer bg-gray-700">
       <div className="relative">
         <Image
           src={imageUrl}
           alt={title}
-          layout='responsive'
-          width={500}
-          height={300}
+          layout='full'
+          width={100}
+          height={200}
         />
       </div>
       <div className="px-6 py-4">
