@@ -3,17 +3,31 @@
 import { useState } from 'react';
 import SearchHub from '@/components/SearchHub';
 import MovieDeck from '@/components/MovieDeck';
-import MovieProps from '@/types/MovieProps';
+import SearchParams from '@/types/SearchParams';
+import useMovies from '@/hooks/useMovies';
+
+const defaultSearchParams: SearchParams = {
+  query: '',
+  startDate: '',
+  endDate: '',
+  sortBy: '',
+};
 
 export default function Home() {
-  const [movies, setMovies] = useState<MovieProps[]>([]);
+  const [searchParams, setSearchParams] = useState(defaultSearchParams);
+  const movies = useMovies(searchParams);
 
-  console.log(movies);
+  if (!movies) {
+    return <div>loading...</div>;
+  }
+  console.log(movies[0]);
+
   return (
     <>
       <div className="justify-center">
-        <SearchHub handleSearch={setMovies} />
-        <MovieDeck movies={movies} />
+        <SearchHub handleSearch={setSearchParams}>
+          <MovieDeck movies={movies} />
+        </SearchHub>
       </div>
     </>
   );

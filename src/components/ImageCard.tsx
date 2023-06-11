@@ -8,15 +8,13 @@ const ImageCard = ({
   title: string;
 }) => {
   return (
-    <div className="flex flex-col p-4 rounded-lg overflow-hidden w-64 bg-gray-700">
-      <div className="relative">
+    <div className="flex items-center justify-center rounded-md p-4 bg-gray-700">
         <Image
           src={imageUrl}
           alt={title}
-          width={100}
-          height={200}
+          width={200}
+          height={300}
         />
-      </div>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{title}</div>
       </div>

@@ -1,11 +1,16 @@
-import useSearch from '@/hooks/useSearch';
+import { useState } from 'react';
 
 export default function SearchBar({
-  handleSearch,
+  handleChange,
 }: {
-  handleSearch: Function;
+  handleChange: Function;
 }) {
-  const { inputText, handleInputChange } = useSearch(handleSearch);
+  const [inputText, setInputText] = useState('');
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setInputText(e.target.value);
+    handleChange(inputText);
+  }
 
   return (
     <div className="ml-auto h-10">
