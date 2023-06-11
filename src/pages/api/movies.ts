@@ -16,7 +16,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const params = new URLSearchParams(req.query);
       const defaultParams = new URLSearchParams(DEFAULT_PARAMS);
-      const url = `${API_URL}discover/movie?api_key=${API_KEY}&${defaultParams}&${params}`;
+      
+      let endpoint = `${API_URL}`;
+      if (params.get('query')) {
+        endpoint += 'search/movie';
+      } else {
+        endpoint += 'discover/movie';
+      }
+
+      const url = `${endpoint}?api_key=${API_KEY}&${defaultParams}&${params}`;
       const response = await fetch(url);
       const data = await response.json();
       const results = data.results;

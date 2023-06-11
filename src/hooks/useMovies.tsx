@@ -13,7 +13,7 @@ export default function useMovies(searchParams: SearchParams) {
       }
     });
   const queryString = buildQueryString(searchParams);
-  console.log(queryString);
+
   const { error } = useSWR(queryString, fetcher);
   if (error) {
     console.log(error);

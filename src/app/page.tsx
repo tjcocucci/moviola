@@ -20,7 +20,6 @@ export default function Home() {
   if (!movies) {
     return <div>loading...</div>;
   }
-  console.log(movies[0]);
 
   return (
     <>

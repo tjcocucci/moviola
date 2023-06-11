@@ -1,15 +1,20 @@
 import { useState } from 'react';
+import useDebounce from '../hooks/useDebounce';
+
+const HALF_A_SECOND_IN_MS = 500;
 
 export default function SearchBar({
   handleChange,
 }: {
-  handleChange: Function;
+  handleChange: (inputText: string) => void;
 }) {
   const [inputText, setInputText] = useState('');
 
+  const debouncedSearch = useDebounce(handleChange, HALF_A_SECOND_IN_MS);
+
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setInputText(e.target.value);
-    handleChange(inputText);
+    debouncedSearch(inputText);
   }
 
   return (
