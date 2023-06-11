@@ -8,12 +8,11 @@ const ImageCard = ({
   title: string;
 }) => {
   return (
-    <div className="flex flex-col rounded-lg overflow-hidden w-64 cursor-pointer bg-gray-700">
+    <div className="flex flex-col p-4 rounded-lg overflow-hidden w-64 bg-gray-700">
       <div className="relative">
         <Image
           src={imageUrl}
           alt={title}
-          layout='full'
           width={100}
           height={200}
         />
