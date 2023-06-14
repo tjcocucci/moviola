@@ -13,19 +13,18 @@ export default function SearchBar({
   const debouncedSearch = useDebounce(handleChange, HALF_A_SECOND_IN_MS);
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setInputText(e.target.value);
-    debouncedSearch(inputText);
+    const newText = e.target.value;
+    setInputText(newText);
+    debouncedSearch(newText);
   }
 
   return (
-    <div className="ml-auto h-10">
-      <input
-        className="w-full h-8 rounded p-1 bg-white text-gray-900"
-        type="text"
-        placeholder="Search..."
-        value={inputText}
-        onChange={(e) => handleInputChange(e)}
-      />
-    </div>
+    <input
+      className="p-2 border border-gray-300 rounded mr-2"
+      type="text"
+      placeholder="Search..."
+      value={inputText}
+      onChange={(e) => handleInputChange(e)}
+    />
   );
 }

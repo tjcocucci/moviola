@@ -5,8 +5,8 @@ const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
 
 export default function MovieDeck({ movies }: { movies: MovieProps[] }) {
   return (
-    <div className="p-10">
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+    <div className="container mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1">
         {movies &&
           movies.map((movie: any) => (
             <ImageCard

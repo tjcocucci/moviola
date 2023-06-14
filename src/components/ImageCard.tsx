@@ -8,15 +8,28 @@ const ImageCard = ({
   title: string;
 }) => {
   return (
-    <div className="flex items-center justify-center rounded-md p-4 bg-gray-700">
-        <Image
-          src={imageUrl}
-          alt={title}
-          width={200}
-          height={300}
-        />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
+    <div className="w-full p-4 flex">
+      <div className="border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center">
+        {' '}
+        <div className="relative flex-grow-0">
+          <Image
+            src={imageUrl}
+            alt={title}
+            layout="responsive"
+            width={300}
+            height={450}
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
+        <div className="p-4 flex flex-col justify-between items-center">
+          <h3 className="text-m font-bold mb-2">{title}</h3>
+          <div className="flex justify-end">
+            <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Add to List
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
