@@ -1,23 +1,25 @@
 import React, { useRef, useState } from 'react';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default function DatePicker({
   handleChange,
 }: {
   handleChange: Function;
 }) {
-  const [date, setDate] = useState('');
-  const dateInputRef = useRef(null);
+  const [date, setDate] = useState(null);
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDate(e.target.value);
-    handleChange(e.target.value);
+  const handleDateChange = (d: Date) => {
+    setDate(d);
+    handleChange(d);
   };
 
   return (
-    <div>
-      <input type="date" onChange={handleDateChange} ref={dateInputRef} />
-      <p>Selected Date: {date}</p>
-    </div>
+      <ReactDatePicker
+        selected={date}
+        onChange={handleDateChange}
+        className="p-2 border border-gray-300 rounded"
+        dateFormat="dd/MM/yyyy"
+      />
   );
-};
-
+}

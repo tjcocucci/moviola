@@ -1,6 +1,6 @@
 export default interface SearchParams {
   query?: string;
-  startDate?: string;
-  endDate?: string;
+  startDate?: Date | null;
+  endDate?: Date | null;
   sortBy?: string;
 }

@@ -2,8 +2,14 @@ import DatePicker from './DatePicker';
 import SearchBar from './SearchBar';
 import { useState } from 'react';
 import Selector from './Selector';
+import SearchParams from '@/types/SearchParams';
 
-const HALF_SECOND_IN_MS = 500;
+const defaultSearchParams: SearchParams = {
+  query: '',
+  startDate: null,
+  endDate: null,
+  sortBy: '',
+};
 
 export default function SearchHub({
   children,
@@ -12,12 +18,7 @@ export default function SearchHub({
   children: React.ReactNode;
   handleSearch: Function;
 }) {
-  const [searchParams, setSearchParams] = useState({
-    query: '',
-    startDate: '',
-    endDate: '',
-    sortBy: '',
-  });
+  const [searchParams, setSearchParams] = useState(defaultSearchParams);
 
   function handleTextQueryChange(textQuery: string) {
     const newParams = { ...searchParams, query: textQuery };
@@ -25,13 +26,13 @@ export default function SearchHub({
     handleSearch(newParams);
   }
 
-  async function handleStartDateChange(date: string) {
+  async function handleStartDateChange(date: Date) {
     const newParams = { ...searchParams, startDate: date };
     setSearchParams(newParams);
     handleSearch(newParams);
   }
 
-  async function handleEndDateChange(date: string) {
+  async function handleEndDateChange(date: Date) {
     const newParams = { ...searchParams, endDate: date };
     setSearchParams(newParams);
     handleSearch(newParams);
@@ -44,15 +45,25 @@ export default function SearchHub({
   }
 
   return (
-    <div>
-      <div className="flex flex-row items-center space-x-5 ">
-        <SearchBar handleChange={handleTextQueryChange} />
-        Start date: <DatePicker handleChange={handleStartDateChange} />
-        End date: <DatePicker handleChange={handleEndDateChange} />
-        Sort by:
-        <Selector handleChange={handleSortByChange} />
+    <>
+      <div className="p-4 flex flex-wrap">
+        <div className="flex items-center mb-4">
+          <SearchBar handleChange={handleTextQueryChange} />
+        </div>
+        <div className="flex items-center">
+          <span className="mr-2">Start date</span>{' '}
+          <DatePicker handleChange={handleStartDateChange} />
+        </div>
+        <div className="flex items-center">
+          <span className="mr-2">End date</span>{' '}
+          <DatePicker handleChange={handleEndDateChange} />
+        </div>
+        <div className="flex items-center">
+          <span className="mr-2">Order by</span>
+          <Selector handleChange={handleSortByChange} />
+        </div>
       </div>
       {children}
-    </div>
+    </>
   );
 }

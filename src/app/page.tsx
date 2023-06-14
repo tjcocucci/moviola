@@ -8,8 +8,8 @@ import useMovies from '@/hooks/useMovies';
 
 const defaultSearchParams: SearchParams = {
   query: '',
-  startDate: '',
-  endDate: '',
+  startDate: null,
+  endDate: null,
   sortBy: '',
 };
 
