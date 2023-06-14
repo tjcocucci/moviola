@@ -17,7 +17,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const defaultParams = new URLSearchParams(DEFAULT_PARAMS);
 
       let endpoint = `${API_URL}`;
-      // check that the query param is not empty
       if (params.get('query')?.length > 0) {
         endpoint += 'search/movie';
       } else {
