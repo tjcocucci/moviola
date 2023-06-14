@@ -46,7 +46,7 @@ export default function SearchHub({
 
   return (
     <>
-      <div className="p-4 flex flex-wrap">
+      <div className="p-4 flex flex-wrap flex-auto">
         <div className="flex items-center mb-4">
           <SearchBar handleChange={handleTextQueryChange} />
         </div>
