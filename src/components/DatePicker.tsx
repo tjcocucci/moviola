@@ -7,7 +7,7 @@ export default function DatePicker({
 }: {
   handleChange: Function;
 }) {
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState<Date | null>(null);
 
   const handleDateChange = (d: Date) => {
     setDate(d);
