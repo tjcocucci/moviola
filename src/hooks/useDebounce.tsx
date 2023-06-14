@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import debounce from "@/utils/debounce";
+import { useRef } from 'react';
+import debounce from '@/utils/debounce';
 
 const useDebounce = (
   func: (...args: any[]) => void,

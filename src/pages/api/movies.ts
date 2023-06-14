@@ -22,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       } else {
         endpoint += 'discover/movie';
       }
-      
+
       const url = `${endpoint}?api_key=${API_KEY}&${defaultParams}&${params}`;
       const response = await fetch(url);
       const data = await response.json();

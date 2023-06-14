@@ -15,11 +15,11 @@ export default function DatePicker({
   };
 
   return (
-      <ReactDatePicker
-        selected={date}
-        onChange={handleDateChange}
-        className="p-2 border border-gray-300 rounded"
-        dateFormat="dd/MM/yyyy"
-      />
+    <ReactDatePicker
+      selected={date}
+      onChange={handleDateChange}
+      className="p-2 border border-gray-300 rounded"
+      dateFormat="dd/MM/yyyy"
+    />
   );
 }
