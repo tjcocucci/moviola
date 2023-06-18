@@ -1,23 +1,15 @@
 import ImageCard from '@/components/ImageCard';
 import MovieProps from '@/types/MovieProps';
 
-const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
-
 export default function MovieDeck({ movies }: { movies: MovieProps[] }) {
   return (
     <div className="container my-10 mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {movies &&
-          movies.map((movie: any) => (
-            <ImageCard
-              key={movie.id}
-              imageUrl={
-                movie.poster_path
-                  ? IMAGE_PATH + movie.poster_path
-                  : 'no-image.svg'
-              }
-              title={movie.title}
-            />
+          movies.map((movie: MovieProps) => (
+            <div key={movie.id}>
+              <ImageCard movieObject={movie} />
+            </div>
           ))}
       </div>
     </div>
