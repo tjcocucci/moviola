@@ -18,7 +18,7 @@ const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
     console.log(localStorage.getItem('list'));
   };
   return (
-    <div className="relative basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full">
+    <div className="relative drop-shadow shadow-white basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full">
       <div className="relative flex-grow-0">
         <div className="object-cover object-center drop-shadow-2xl shadow-white">
           <Image

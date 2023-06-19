@@ -19,7 +19,7 @@ export default function Sidebar() {
           className="group flex w-full items-center gap-x-2.5"
           onClick={close}
         >
-          <h3 className="font-semibold tracking-wide group-hover:text-gray-50">
+          <h3 className="font-semibold tracking-wide group-hover:text-gray-50 w-full text-lg text-center">
             Moviola
           </h3>
         </Link>
@@ -80,7 +80,7 @@ function GlobalNavItem({
       onClick={close}
       href={path}
       className={clsx(
-        'block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300',
+        'block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300 hover:scale-105 transition duration-150 ease-in-out',
         {
           'text-gray-400 hover:bg-gray-800': !isActive,
           'text-white underline': isActive, // Estilo para elementos activos
