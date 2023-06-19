@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { MenuAlt2Icon, XIcon } from '@/components/Icons';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,13 +79,11 @@ function GlobalNavItem({
     <Link
       onClick={close}
       href={path}
-      className={clsx(
-        'block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300 hover:scale-105 transition duration-150 ease-in-out',
-        {
-          'text-gray-400 hover:bg-gray-800': !isActive,
-          'text-white underline': isActive, // Estilo para elementos activos
-        }
-      )}
+      className={clsx('block rounded-md px-3 py-2 text-sm font-medium ', {
+        'text-gray-400 hover:bg-gray-800 hover:text-gray-300 hover:scale-105 transition duration-150 ease-in-out':
+          !isActive,
+        'text-white underline': isActive, // Estilo para elementos activos
+      })}
     >
       {name}
     </Link>
