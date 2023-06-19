@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useSelectedLayoutSegment } from 'next/navigation';
 import { MenuAlt2Icon, XIcon } from '@/components/Icons';
 import clsx from 'clsx';
 import { useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,8 +72,8 @@ function GlobalNavItem({
   name: string;
   close: () => false | void;
 }) {
-  const segment = useSelectedLayoutSegment();
-  const isActive = path === segment;
+  const pathname = usePathname();
+  const isActive = pathname === path;
 
   return (
     <Link
