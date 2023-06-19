@@ -45,9 +45,9 @@ export default function SearchHub({
   }
 
   return (
-    <>
-      <div className="p-4 flex flex-auto flex-col gap-5">
-        <div className="mb-4">
+    <div>
+      <div className="p-4 flex self-center flex-auto flex-col gap-5 max-w-4xl">
+        <div className="mb-3">
           <SearchBar handleChange={handleTextQueryChange} />
         </div>
 
@@ -66,6 +66,6 @@ export default function SearchHub({
         </div>
       </div>
       {children}
-    </>
+    </div>
   );
 }

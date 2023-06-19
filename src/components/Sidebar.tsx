@@ -68,8 +68,8 @@ function GlobalNavItem({
   name,
   close,
 }: {
-  path: String;
-  name: String;
+  path: string;
+  name: string;
   close: () => false | void;
 }) {
   const segment = useSelectedLayoutSegment();
@@ -78,12 +78,12 @@ function GlobalNavItem({
   return (
     <Link
       onClick={close}
-      href={`${path}`}
+      href={path}
       className={clsx(
         'block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300',
         {
           'text-gray-400 hover:bg-gray-800': !isActive,
-          'text-white': isActive,
+          'text-white underline': isActive, // Estilo para elementos activos
         }
       )}
     >
