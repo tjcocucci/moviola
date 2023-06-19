@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="[color-scheme:dark]">
       <body className="overflow-y-scroll bg-gray-1100">
         <Sidebar />
-        <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
+        <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col md:px-0 border">
           <MainCard>{children}</MainCard>
         </main>
       </body>

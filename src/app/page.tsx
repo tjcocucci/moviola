@@ -23,11 +23,10 @@ export default function Home() {
 
   return (
     <>
-      <div className="justify-center">
-        <SearchHub handleSearch={setSearchParams}>
-          <MovieDeck movies={movies} />
-        </SearchHub>
-      </div>
+      <SearchHub handleSearch={setSearchParams}>
+        <div className="w-full h-px bg-white"></div>
+        <MovieDeck movies={movies} />
+      </SearchHub>
     </>
   );
 }
