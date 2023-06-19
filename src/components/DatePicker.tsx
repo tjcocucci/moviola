@@ -18,7 +18,7 @@ export default function DatePicker({
     <ReactDatePicker
       selected={date}
       onChange={handleDateChange}
-      className="p-2 border border-gray-300 rounded"
+      className="p-2 border border-gray-300 rounded w-2/3"
       dateFormat="dd/MM/yyyy"
     />
   );

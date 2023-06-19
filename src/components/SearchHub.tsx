@@ -46,21 +46,23 @@ export default function SearchHub({
 
   return (
     <>
-      <div className="p-4 flex flex-wrap flex-auto">
-        <div className="flex items-center mb-4">
+      <div className="p-4 flex flex-auto flex-col gap-5">
+        <div className="mb-4">
           <SearchBar handleChange={handleTextQueryChange} />
         </div>
-        <div className="flex items-center">
-          <span className="mr-2">Start date</span>{' '}
-          <DatePicker handleChange={handleStartDateChange} />
-        </div>
-        <div className="flex items-center">
-          <span className="mr-2">End date</span>{' '}
-          <DatePicker handleChange={handleEndDateChange} />
-        </div>
-        <div className="flex items-center">
-          <span className="mr-2">Order by</span>
-          <Selector handleChange={handleSortByChange} />
+
+        <div className="flex">
+          <div className="flex items-center">
+            <span className="whitespace-nowrap mr-5">Start date:</span>
+            <DatePicker handleChange={handleStartDateChange} />
+          </div>
+          <div className="flex items-center">
+            <span className="whitespace-nowrap mr-5">End date:</span>
+            <DatePicker handleChange={handleEndDateChange} />
+          </div>
+          <div className="flex items-center ">
+            <Selector handleChange={handleSortByChange} />
+          </div>
         </div>
       </div>
       {children}
