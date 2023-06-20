@@ -23,7 +23,13 @@ export default function Home() {
       <SearchHub handleSearch={setSearchParams}>
         <div className="w-full h-px bg-white"></div>
         {movies.length === 0 && (
-          <div className="text-3xl my-5 font-bold mb-8 text-gray-700 self-center italic text-blue-700">
+          <div
+            className="text-3xl my-5 font-bold mb-8 text-gray-800 self-center italic text-blue-700"
+            style={{
+              textShadow:
+                '2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5)',
+            }}
+          >
             Loading...
           </div>
         )}

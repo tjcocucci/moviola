@@ -17,7 +17,7 @@ const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
     }
   };
   return (
-    <div className="relative drop-shadow shadow-white basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full">
+    <div className="relative drop-shadow shadow-white basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full opacity-90 hover:opacity-100 hover:scale-105 hover:cursor-pointer">
       <div className="relative flex-grow-0">
         <div className="object-cover object-center drop-shadow-2xl shadow-white">
           <Image
@@ -34,7 +34,7 @@ const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
       <div className="w-full p-4 flex flex-col justify-stretch">
         <button
           onClick={addToList}
-          className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="w-full bg-blue-500 hover:bg-blue-700 hover:scale-105 text-white font-bold py-2 px-4 rounded"
         >
           Add to List
         </button>
