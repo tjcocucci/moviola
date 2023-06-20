@@ -1,14 +1,6 @@
-'use client';
-import MovieDeck from '@/components/MovieDeck';
+import SelectedMoviesList from '@/components/SelectedMoviesList';
 
 export default function Home() {
-  const array: any = [];
-
-  JSON.parse(localStorage.getItem('list') || '[]').map((item: any) => {
-    const { title, poster_path } = item;
-    array.push({ title, poster_path });
-  });
-
   return (
     <div className="flex flex-col">
       <h1
@@ -20,7 +12,7 @@ export default function Home() {
       >
         My List
       </h1>
-      <MovieDeck movies={array} />
+      <SelectedMoviesList />
     </div>
   );
 }

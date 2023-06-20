@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import MovieProps from '@/types/MovieProps';
+import { ListContext } from '@/context/listContextProvider';
+import { useContext } from 'react';
 
 const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
   const { title, poster_path } = movieObject;
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
   const [isInList, setIsInList] = useState(false);
 
+<<<<<<< HEAD
   const list = localStorage.getItem('list');
 
   useEffect(() => {
@@ -36,7 +39,16 @@ const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
       const newList = [{ poster_path, title }];
       localStorage.setItem('list', JSON.stringify(newList));
       setIsInList(true);
+=======
+  const { selectedMovies, setStateAndLocalStorage } = useContext(ListContext);
+
+  const addToList = () => {
+    if (selectedMovies.find((movie) => movie.id === movieObject.id)) {
+      return;
+>>>>>>> 34b92fcec9e3eabfd1949bb90ebeb6b9418bd592
     }
+    const newList = [movieObject, ...selectedMovies];
+    setStateAndLocalStorage(newList);
   };
 
   return (
