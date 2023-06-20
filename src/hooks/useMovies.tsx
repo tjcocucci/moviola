@@ -5,7 +5,6 @@ import { buildQueryString } from '@/utils/searchMovies';
 
 export default function useMovies(searchParams: SearchParams) {
   const [movies, setMovies] = useState([]);
-
   const fetcher = (url: string) =>
     fetch(url).then((res) => {
       if (res.ok && res.status === 200) {
@@ -14,6 +13,8 @@ export default function useMovies(searchParams: SearchParams) {
     });
   const queryString = buildQueryString(searchParams);
 
+  // TypeError because queryString is relative and this serverside code
+  // needs absolute path
   const { error } = useSWR(queryString, fetcher);
   if (error) {
     console.log(error);
