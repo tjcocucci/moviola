@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -16,6 +16,7 @@ export default function DatePicker({
 
   return (
     <ReactDatePicker
+      data-testid="date-picker"
       selected={date}
       onChange={handleDateChange}
       className="p-2 border border-gray-300 rounded w-2/3"
