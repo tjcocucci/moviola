@@ -1,20 +1,20 @@
 import Image from 'next/image';
 import MovieProps from '@/types/MovieProps';
+import { ListContext } from '@/context/listContextProvider';
+import { useContext } from 'react';
 
 const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
   const { title, poster_path } = movieObject;
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
 
+  const { selectedMovies, setStateAndLocalStorage } = useContext(ListContext);
+
   const addToList = () => {
-    const list = localStorage.getItem('list');
-    if (list) {
-      const newList = JSON.parse(list);
-      newList.push(movieObject);
-      localStorage.setItem('list', JSON.stringify(newList));
-    } else {
-      const newList = [{ poster_path, title }];
-      localStorage.setItem('list', JSON.stringify(newList));
+    if (selectedMovies.find((movie) => movie.id === movieObject.id)) {
+      return;
     }
+    const newList = [movieObject, ...selectedMovies];
+    setStateAndLocalStorage(newList);
   };
   return (
     <div className="relative drop-shadow shadow-white basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full opacity-90 hover:opacity-100 hover:scale-105 hover:cursor-pointer">
