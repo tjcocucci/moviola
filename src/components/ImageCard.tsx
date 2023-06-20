@@ -1,23 +1,46 @@
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import MovieProps from '@/types/MovieProps';
 
 const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
   const { title, poster_path } = movieObject;
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
+  const [isInList, setIsInList] = useState(false);
 
-  const addToList = () => {
-    const list = localStorage.getItem('list');
+  const list = localStorage.getItem('list');
+
+  useEffect(() => {
+    if (list) {
+      const parsedList = JSON.parse(list);
+      const movieInList = parsedList.some(
+        (movie: MovieProps) => movie.title === title
+      );
+      setIsInList(movieInList);
+    }
+  }, [list, title]);
+
+  const toggleList = () => {
     if (list) {
       const newList = JSON.parse(list);
-      newList.push(movieObject);
-      localStorage.setItem('list', JSON.stringify(newList));
+      if (isInList) {
+        const filteredList = newList.filter(
+          (movie: MovieProps) => movie.title !== title
+        );
+        localStorage.setItem('list', JSON.stringify(filteredList));
+      } else {
+        newList.push(movieObject);
+        localStorage.setItem('list', JSON.stringify(newList));
+      }
+      setIsInList(!isInList);
     } else {
       const newList = [{ poster_path, title }];
       localStorage.setItem('list', JSON.stringify(newList));
+      setIsInList(true);
     }
   };
+
   return (
-    <div className="relative drop-shadow shadow-white basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full opacity-90 hover:opacity-100 hover:scale-105 hover:cursor-pointer">
+    <div className="relative drop-shadow shadow-white basis-1/2 lg:basis-1/4 xl:basis-1/5 border border-gray-200 rounded-lg overflow-hidden flex flex-col items-center justify-between h-full opacity-90 hover:opacity-100 hover:scale-105 ">
       <div className="relative flex-grow-0">
         <div className="object-cover object-center drop-shadow-2xl shadow-white">
           <Image
@@ -33,10 +56,14 @@ const ImageCard = ({ movieObject }: { movieObject: MovieProps }) => {
       </div>
       <div className="w-full p-4 flex flex-col justify-stretch">
         <button
-          onClick={addToList}
-          className="w-full bg-blue-500 hover:bg-blue-700 hover:scale-105 text-white font-bold py-2 px-4 rounded"
+          onClick={toggleList}
+          className={`w-full text-white font-bold py-2 px-4 rounded hover:scale-105 hover:cursor-pointer ${
+            isInList
+              ? 'bg-red-500 hover:bg-red-700'
+              : 'bg-blue-500 hover:bg-blue-700'
+          }`}
         >
-          Add to List
+          {isInList ? 'Remove from List' : 'Add to List'}
         </button>
       </div>
     </div>
