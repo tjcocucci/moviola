@@ -1,7 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Sidebar from '../components/Sidebar';
-import clsx from 'clsx';
 import { MainCard } from '@/components/MainCard';
 
 const inter = Inter({ subsets: ['latin'] });
