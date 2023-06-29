@@ -13,11 +13,11 @@ const DEFAULT_PARAMS = {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     try {
-      const params = new URLSearchParams(req.query);
+      const params = new URLSearchParams(req.query.toString());
       const defaultParams = new URLSearchParams(DEFAULT_PARAMS);
 
       let endpoint = `${API_URL}`;
-      if (params.get('query')?.length > 0) {
+      if (params?.get('query')?.length ?? 0 > 0) {
         endpoint += 'search/movie';
       } else {
         endpoint += 'discover/movie';
