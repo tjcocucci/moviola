@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`[ components / DatePicker ] > when component is rendered > should render a date picker 1`] = `
+<DocumentFragment>
+  <div
+    class="react-datepicker-wrapper"
+  >
+    <div
+      class="react-datepicker__input-container "
+    >
+      <span
+        aria-live="polite"
+        class="react-datepicker__aria-live"
+        role="alert"
+      />
+      <input
+        class="p-2 border border-gray-300 rounded w-2/3"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

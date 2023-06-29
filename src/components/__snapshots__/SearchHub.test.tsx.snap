@@ -1,0 +1,108 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`[ components / SearchHub ] > when component is rendered > should render snapshoted SearchHub 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="p-4 flex self-center flex-auto flex-col gap-5 max-w-4xl"
+    >
+      <div
+        class="mb-3"
+      >
+        <input
+          class="p-2 border border-gray-300 rounded mr-2"
+          placeholder="Search..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="flex"
+      >
+        <div
+          class="flex items-center"
+        >
+          <span
+            class="whitespace-nowrap mr-5"
+          >
+            Start date:
+          </span>
+          <div
+            class="react-datepicker-wrapper"
+          >
+            <div
+              class="react-datepicker__input-container "
+            >
+              <span
+                aria-live="polite"
+                class="react-datepicker__aria-live"
+                role="alert"
+              />
+              <input
+                class="p-2 border border-gray-300 rounded w-2/3"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center"
+        >
+          <span
+            class="whitespace-nowrap mr-5"
+          >
+            End date:
+          </span>
+          <div
+            class="react-datepicker-wrapper"
+          >
+            <div
+              class="react-datepicker__input-container "
+            >
+              <span
+                aria-live="polite"
+                class="react-datepicker__aria-live"
+                role="alert"
+              />
+              <input
+                class="p-2 border border-gray-300 rounded w-2/3"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center "
+        >
+          <div
+            class="p-2 "
+          >
+            <select>
+              <option
+                value=""
+              >
+                Order by
+              </option>
+              <option
+                value="popularity.desc"
+              >
+                Popularity
+              </option>
+              <option
+                value="release_date.desc"
+              >
+                Release date
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      Test
+    </div>
+  </div>
+</DocumentFragment>
+`;
