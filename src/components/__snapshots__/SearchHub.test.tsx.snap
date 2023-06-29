@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[ app / Home ] > when component is rendered > should render a the snapshoted home component 1`] = `
+exports[`[ components / SearchHub ] > when component is rendered > should render snapshoted SearchHub 1`] = `
 <DocumentFragment>
   <div>
     <div
@@ -100,21 +100,8 @@ exports[`[ app / Home ] > when component is rendered > should render a the snaps
         </div>
       </div>
     </div>
-    <div
-      class="w-full h-px bg-white"
-    />
-    <div
-      class="text-3xl my-5 font-bold mb-8 text-gray-800 self-center italic text-blue-700"
-      style="text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5), -2px -2px 4px rgba(0, 0, 0, 0.5);"
-    >
-      Loading...
-    </div>
-    <div
-      class="container my-10 mx-auto  max-w-4xl"
-    >
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-      />
+    <div>
+      Test
     </div>
   </div>
 </DocumentFragment>
